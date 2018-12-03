@@ -18,11 +18,13 @@ p, {
 .top-wrapper {
   padding: 150px 0 500px 0;
   background-image: url('icon/youDSC_0057.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
   color: #FF7F50;
-  opacity: 0.8;
-
 }
+
 .btn {
   color: #fff;
   padding-top: 15px;
@@ -80,15 +82,42 @@ header {
   background-size: cover;
 
   .users-new-container {
-    padding-top: 220px;
+    padding-top: 120px;
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 30px;
+      color: #6495ED;
     }
   }
 }
-.text-center h1 {
-  font-style: oblique;
+
+.alert {
+  margin-bottom: 0px;
+  position: fixed;
+  width: 100%;
+  z-index: 10000;
+}
+
+.text-center {
+  font-family: arial;
   font-size: 30px;
-  font-weight: 100;
+  color: #6495ED;
+}
+
+.navbar-transparent {
+  background-image: url('icon/youDSC_0057.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.navbar-right {
+  line-height: 64px;
+  font-size: 30px;
+  font-weight: normal;
+  color: white;
+  padding-left: 15px;
+  list-style: none;
+
 }

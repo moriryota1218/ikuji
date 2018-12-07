@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get 'signup' => "users#new"
   get '/' => "home#top"
   root 'home#top'
+  get 'users/:id' => 'users#show'
+  get 'users/:id/edit' => 'users#edit'
 
   resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

@@ -20,37 +20,36 @@
          <span><%= image_tag "icon/logo.png", :size => '90x90' %></span>
         <% end %>
         <ul class="nav navbar-nav navbar-right">
-            <% if logged_in? %>
+            <% current_user = User.find_by(id: session[:user_id]) %>
+            <% if current_user %>
              <li>
-                <%= link_to "#" do %>
-                 <%= link_to "投稿一覧" %>
-                <% end %>
+                <%= link_to "投稿一覧" %>
+
              </li>
              <li>
-               <%= link_to "#" do %>
-                <%= link_to "レシピ一覧" %>
-               <% end %>
+               <%= link_to "新規投稿" %>
+
              </li>
              <li>
-               <%= link_to "#" do %>
-                <%= link_to "マイページ" %>
-               <% end %>
+               <%= link_to "レシピ一覧" %>
+
+             </li>
+             <li>
+               <%= link_to "マイページ", "/users/#{current_user.id}" %>
+
             </li>
             <li>
-              <%= link_to logout_path, method: :delete do %>
-               <%= link_to "ログアウト" %>
-               <% end %>
+              <%= link_to "ログアウト", logout_path, method: :delete %>
             </li>
+
           <% else %>
             <li>
-              <%= link_to "#" do %>
-               <%= link_to "新着投稿" %>
-              <% end %>
+              <%= link_to "新着投稿" %>
+
             </li>
             <li>
-              <%= link_to "#" do %>
-               <%= link_to "新着レシピ" %>
-              <% end %>
+              <%= link_to "新着レシピ" %>
+
             </li>
           <% end %>
         </ul>

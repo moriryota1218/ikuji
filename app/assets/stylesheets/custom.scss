@@ -104,12 +104,16 @@ header {
   color: #6495ED;
 }
 
-.navbar-transparent {
+.navbar-background {
   background-image: url('icon/youDSC_0057.jpg');
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+.navbar-transparent {
+  
 }
 
 .navbar-right {
@@ -119,5 +123,14 @@ header {
   color: white;
   padding-left: 15px;
   list-style: none;
+  padding-top: 20px;
+
+}
+
+.user {
+  margin: 300px;
+  margin-left: 300px;
+  text-align: center;
+
 
 }

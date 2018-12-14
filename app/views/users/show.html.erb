@@ -1,9 +1,17 @@
 <div class="main user-show">
   <div class="container">
+    <%= form_for(@user) do |f| %>
     <div class="user">
-      <h2><%= @user.name %></h2>
+      <h1 class="text-center">マイページ</h1>
 
-      <%= link_to("編集", "users/#{@user.id}/edit") %>
+      <%= image_tag @user.image.url %>
+
+      <h2><%= @user.name %></h2>
+      <p><%= @user.s_introduction %></p>
+
+      <%= link_to "編集", edit_user_path(@user.id) %>
+
     </div>
+    <% end %>
   </div>
 </div>

@@ -1,0 +1,36 @@
+<div class="topic-new-wrapper" >
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <h1 class="text-center">新規投稿</h1>
+         <%= form_for @topic do |f| %>
+          <div class="form-group">
+            <%= f.label :title %>
+            <%= f.text_field :title, class: 'form-control' %>
+
+
+            <%= f.label :category %>
+            <select class="form-control">
+             <option>しつけ</option>
+             <option>病気</option>
+             <option>遊び場、スポット</option>
+             <option>授乳場所</option>
+           </select>
+
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control' %>
+           </div>
+
+           <div class="form-group">
+             <%= f.label :image %>
+             <%= f.file_field :image %>
+           </div>
+          <div style="text-align:center">
+           <%= f.submit '投稿', class: 'btn4 btn-lg btn-primary' %>
+         </div>
+            <% end %>
+
+         </div>
+       </div>
+     </div>
+   </div>

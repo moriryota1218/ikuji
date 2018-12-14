@@ -14,9 +14,9 @@
      <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
     <% end %>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent"<%
-    (controller.controller_name == 'user' || controller.action_name == 'show' || (params[:id] ==
-    current_user.id)) ? '' : 'navbar-background' %>"">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-transparent <%=
+    controller.controller_name == 'users' && (controller.action_name == 'show' || controller.action_name == 'edit' )?
+    '': 'navbar-background' %>">
       <div class="container">
         <%= link_to root_path do %>
          <span><%= image_tag "icon/logo.png", :size => '90x90' %></span>
@@ -29,12 +29,15 @@
 
              </li>
              <li>
-               <%= link_to "新規投稿" %>
+               <%= link_to "新規投稿", new_topic_path %>
 
              </li>
              <li>
                <%= link_to "レシピ一覧" %>
 
+             </li>
+             <li>
+               <%= link_to "レシピ投稿" %>
              </li>
              <li>
                <%= link_to "マイページ", "/users/#{current_user.id}" %>
@@ -46,7 +49,7 @@
 
           <% else %>
             <li>
-              <%= link_to "新着投稿" %>
+              <%= link_to "新着情報" %>
 
             </li>
             <li>

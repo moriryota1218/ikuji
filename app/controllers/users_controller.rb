@@ -16,14 +16,9 @@ class UsersController < ApplicationController
     end
   end
 
-  private
-  def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
-  end
-
   def edit
     @user = User.find(params[:id])
-    render :layout => 'users'
+    render 'edit'
   end
 
   def update
@@ -34,4 +29,11 @@ class UsersController < ApplicationController
       render'edit'
     end
   end
+
+
+  private
+  def user_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
 end

@@ -9,14 +9,9 @@
             <%= f.text_field :title, class: 'form-control' %>
 
 
-            <%= f.label :category %>
-            <select class="form-control">
-             <option>しつけ</option>
-             <option>病気</option>
-             <option>遊び場、スポット</option>
-             <option>授乳場所</option>
-           </select>
-
+            <%= f.label :category %><br>
+             <%= f.select :category, [["しつけ", "しつけ"], ["病気", "病気"],["遊び場、レストラン"],["授乳場所"]], class:"form-control" %>
+             <br>
             <%= f.label :description %>
             <%= f.text_area :description, class: 'form-control' %>
            </div>

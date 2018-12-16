@@ -8,12 +8,12 @@
              <%= topic.user.name %>
            </h2>
            <% if topic.image.url == nil %>
-            <imag src="http://placehold.jp/50/bebecc/e3dfdf/350x350.png?text=No%20Image" >
+            <img src="http://placehold.jp/50/bebecc/e3dfdf/350x350.png?text=No%20Image" >
            <% else %>
             <%= image_tag topic.image.url %>
           <% end %>
           <p class="topic-text">
-             <ul>
+             <ul style="list-style:none;">
               <li><%= topic.title %></li>
               <li><%= topic.category %></li>
               <li><%= topic.description %></li>

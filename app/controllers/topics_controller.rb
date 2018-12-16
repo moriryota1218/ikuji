@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all
+    @topics = Topic.all.order(created_at: "desc")
   end
 
   def new
@@ -17,9 +17,9 @@ class TopicsController < ApplicationController
       render :new
     end
   end
-  
+
   private
   def topic_params
-    params.require(:topic).permit(:title, :category, :description)
+    params.require(:topic).permit(:title, :category, :description, :image)
   end
 end

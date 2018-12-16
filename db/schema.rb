@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_12_12_102631) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.text "s_introduction"
+    t.string "image"
   end
 
 end

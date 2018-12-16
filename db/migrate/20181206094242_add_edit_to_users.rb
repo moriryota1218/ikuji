@@ -1,5 +1,6 @@
 class AddEditToUsers < ActiveRecord::Migration[5.2]
   def change
     add_column :users, :s_introduction, :text
+    add_column :users, :image, :string
   end
 end

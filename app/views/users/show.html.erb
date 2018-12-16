@@ -4,7 +4,12 @@
     <div class="user">
       <h1 class="text-center">マイページ</h1>
 
-      <%= image_tag @user.image.url %>
+      <% if @user.image.url == nil %>
+       <img src="http://placehold.jp/50/bebecc/e3dfdf/350x350.png?text=No%20Image" >
+      <% else %>
+       <%= image_tag @user.image.url %>
+     <% end %>
+
 
       <h2><%= @user.name %></h2>
       <p><%= @user.s_introduction %></p>

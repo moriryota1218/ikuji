@@ -16,7 +16,8 @@
 
     <nav class="navbar navbar-default navbar-fixed-top navbar-transparent <%=
     (controller.controller_name == 'users' && (controller.action_name == 'show' ||
-      controller.action_name == 'edit' )) || (controller.controller_name == 'topics' && controller.action_name == 'new')? '': 'navbar-background' %>">
+      controller.action_name == 'edit' )) || (controller.controller_name == 'topics' && controller.action_name == 'new') ||
+      (controller.controller_name == 'recipes' && controller.action_name == 'new')? '': 'navbar-background' %>">
       <div class="container">
         <%= link_to root_path do %>
          <span><%= image_tag "icon/logo.png", :size => '90x90' %></span>
@@ -33,11 +34,11 @@
 
              </li>
              <li>
-               <%= link_to "レシピ一覧" %>
+               <%= link_to "レシピ一覧", recipes_path %>
 
              </li>
              <li>
-               <%= link_to "レシピ投稿" %>
+               <%= link_to "レシピ投稿", new_recipe_path %>
              </li>
              <li>
                <%= link_to "マイページ", "/users/#{current_user.id}" %>

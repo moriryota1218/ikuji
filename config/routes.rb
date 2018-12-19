@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'recipes/new' => "recipes#new"
   get 'topics/new' => "topics#new"
   get 'sessions/new'
   get 'signup' => "users#new"
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit'
   resources :users
   resources :topics
+  resources :recipes
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

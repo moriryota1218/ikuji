@@ -1,0 +1,37 @@
+<div class="recipe-new-wrapper">
+  <div class="container">
+
+    <div class="row">
+      <h1>レシピ投稿</h1>
+
+      <div class="col-md-6 col-md-offset-3">
+        <%= form_for(@recipes) do |f| %>
+
+
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+
+          <%= f.label :category  %><br>
+           <%= f.select :category, [["離乳食", "離乳食"], ["時短メニュー", "時短メニュー"], ["克服レシピ", "克服レシピ"]], class:"form-control" %>
+
+         <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image %>
+        </div>
+
+
+          <%= f.label :cooking_material %>
+          <%= f.text_area :cooking_material, class: 'form-control' %>
+
+          <%= f.label :how_to_make %>
+          <%= f.text_area :how_to_make, class: 'form-control' %>
+
+          <div style="text-align:center">
+           <%= f.submit '投稿', class: 'btn4 btn-lg btn-primary' %>
+         </div>
+
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

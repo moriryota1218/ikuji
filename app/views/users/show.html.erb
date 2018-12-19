@@ -7,7 +7,7 @@
       <% if @user.image.url == nil %>
        <img src="http://placehold.jp/50/bebecc/e3dfdf/350x350.png?text=No%20Image" >
       <% else %>
-       <%= image_tag @user.image.url %>
+       <%= image_tag @user.image.url, width: 200, height: 200 %>
      <% end %>
 
 

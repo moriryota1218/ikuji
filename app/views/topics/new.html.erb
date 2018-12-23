@@ -5,19 +5,19 @@
         <h1 class="text-center">新規投稿</h1>
          <%= form_for @topic do |f| %>
           <div class="form-group">
-            <%= f.label :title %>
+            <%= f.label :"タイトル" %>
             <%= f.text_field :title, class: 'form-control' %>
 
 
-            <%= f.label :category %><br>
+            <%= f.label :"カテゴリー" %><br>
              <%= f.select :category, [["しつけ", "しつけ"], ["病気", "病気"],["遊び場、レストラン"],["授乳場所"]], class:"form-control" %>
              <br>
-            <%= f.label :description %>
+            <%= f.label :"投稿内容" %>
             <%= f.text_area :description, class: 'form-control' %>
            </div>
 
            <div class="form-group">
-             <%= f.label :image %>
+             <%= f.label :"投稿画像" %>
              <%= f.file_field :image %>
            </div>
           <div style="text-align:center">

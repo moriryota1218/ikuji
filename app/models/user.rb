@@ -13,8 +13,9 @@ class User < ApplicationRecord
   validates :s_introduction, length: { maximum: 200}
 
   has_many :topics
-
+  has_many :comments
   has_many :recipes
+
 
   mount_uploader :image, ImageUploader
 

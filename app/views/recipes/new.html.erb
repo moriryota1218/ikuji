@@ -8,22 +8,22 @@
         <%= form_for(@recipes) do |f| %>
 
 
-          <%= f.label :title %>
+          <%= f.label :"タイトル" %>
           <%= f.text_field :title, class: 'form-control' %>
 
-          <%= f.label :category  %><br>
+          <%= f.label :"カテゴリー"  %><br>
            <%= f.select :category, [["離乳食", "離乳食"], ["時短メニュー", "時短メニュー"], ["克服レシピ", "克服レシピ"]], class:"form-control" %>
 
          <div class="form-group">
-          <%= f.label :image %>
+          <%= f.label :"画像" %>
           <%= f.file_field :image %>
         </div>
 
 
-          <%= f.label :cooking_material %>
+          <%= f.label :"材料" %>
           <%= f.text_area :cooking_material, class: 'form-control' %>
 
-          <%= f.label :how_to_make %>
+          <%= f.label :"作り方" %>
           <%= f.text_area :how_to_make, class: 'form-control' %>
 
           <div style="text-align:center">

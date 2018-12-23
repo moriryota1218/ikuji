@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_17_093456) do
+ActiveRecord::Schema.define(version: 2018_12_23_105001) do
+
+  create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "content"
+    t.bigint "users_id"
+    t.bigint "topics_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topics_id"], name: "index_comments_on_topics_id"
+    t.index ["users_id"], name: "index_comments_on_users_id"
+  end
 
   create_table "recipes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
@@ -43,4 +53,6 @@ ActiveRecord::Schema.define(version: 2018_12_17_093456) do
     t.string "image"
   end
 
+  add_foreign_key "comments", "topics", column: "topics_id"
+  add_foreign_key "comments", "users", column: "users_id"
 end

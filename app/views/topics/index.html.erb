@@ -23,9 +23,23 @@
               <li><%= topic.description %></li>
             </ul>
            </p>
+           <div class="topic-menu">
+             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
+           </div>
          </div>
        </div>
      </div>
     <% end %>
+    <!--ここからコメント投稿機能を作成する -->
+    <h3>コメント一覧</h3>
+
+    <%= form_for [@topic,@comment] do |f| %>
+     <%= f.text_field :content %>
+     <%= f.hidden_field :user_id, :value => current_user.id %>
+     <%= f.hidden_field :topic_id, :value => @topic_id %>
+     <br>
+     <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
+    <% end %>
+
   </div>
 </div>

@@ -32,8 +32,11 @@
     <% end %>
     <!--ここからコメント投稿機能を作成する -->
     <h3>コメント一覧</h3>
+    <% @comments.each do |comment| %>
+     <%= c.content  %>
+    <% end %>
 
-    <%= form_for [@topic,@comment] do |f| %>
+    <%= form_for [@topic, @comment] do |f| %>
      <%= f.text_field :content %>
      <%= f.hidden_field :user_id, :value => current_user.id %>
      <%= f.hidden_field :topic_id, :value => @topic_id %>

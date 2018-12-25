@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :users
   resources :recipes
   resources :topics, only: [:index, :new, :create, :topic_id] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :show]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/login', to: 'sessions#new'

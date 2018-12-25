@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   def index
     @topics = Topic.all.order(created_at: "desc")
+
   end
 
   def new
@@ -8,7 +9,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find_by(id: params[:id])
+    @topics = Topic.find(params[:id])
     @comments = @topic.comments
     @comment = Comment.new
   end

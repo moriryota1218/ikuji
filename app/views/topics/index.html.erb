@@ -1,47 +1,52 @@
 <div class="topic-index-wrapper">
   <div class="container">
     <% @topics.each do |topic| %>
-     <div class="row">
-       <div class="col-md-6 col-md-offset-3">
-         <div class="topic-index-single">
-           <h4 class="topic-author">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="topic-index-single">
+          <h4 class="topic-author">
             <ul style="list-style:none;">
-             <li><%= topic.user.name %></li>
-             <li><%= topic.title %></li>
-           </ul>
-           </h4>
-           <% if topic.image.url == nil %>
-            <img src="http://placehold.jp/50/bebecc/e3dfdf/350x350.png?text=No%20Image" >
-           <% else %>
-            <%= image_tag topic.image.url %>
+              <li><%= topic.user.name %></li>
+              <li><%= topic.title %></li>
+            </ul>
+          </h4>
+          <% if topic.image.url == nil %>
+          <img src="http://placehold.jp/50/bebecc/e3dfdf/350x350.png?text=No%20Image" >
+          <% else %>
+          <%= image_tag topic.image.url %>
           <% end %>
           <p class="topic-text">
-             <ul>
+            <ul>
               <li><%= topic.category %></li>
             </ul>
-             <ul style="list-style:none;">
+            <ul style="list-style:none;">
               <li><%= topic.description %></li>
             </ul>
-           </p>
-           <div class="topic-menu">
-             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
-           </div>
-         </div>
-       </div>
-     </div>
-    <% end %>
-    <!--ここからコメント投稿機能を作成する -->
-    <h3>コメント一覧</h3>
-    <% @comments.each do |comment| %>
-     <%= c.content  %>
+          </p>
+          <div class="topic-menu">
+            <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
+          </div>
+        </div>
+      </div>
+      <!--ここからコメント投稿機能を作成する -->
+      <h3>コメント一覧</h3>
+      <% topic.comments.each do |t| %>
+      <div>
+        <a href="/users/<%= @topics.user.id %>"></a>
+        <%= c.content %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <%= form_for [@topics, @comment] do |f| %>
+    <%= f.text_field :content %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <%= f.hidden_field :topic_id, :value => @topic_id %>
+    <br>
+    <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
     <% end %>
 
-    <%= form_for [@topic, @comment] do |f| %>
-     <%= f.text_field :content %>
-     <%= f.hidden_field :user_id, :value => current_user.id %>
-     <%= f.hidden_field :topic_id, :value => @topic_id %>
-     <br>
-     <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
     <% end %>
 
   </div>

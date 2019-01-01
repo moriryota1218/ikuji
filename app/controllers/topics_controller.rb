@@ -1,6 +1,9 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!, only: [:show, :create]
+
   def index
     @topics = Topic.all.order(created_at: "desc")
+    @topic = Topic.new
 
   end
 
@@ -9,14 +12,14 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topics = Topic.find(params[:id])
-    @comments = @topic.comments
+    @topic = Topic.find(params[:id])
+    @comments = @post.comments
     @comment = Comment.new
   end
 
-
   def create
     @topic = current_user.topics.new(topic_params)
+
 
     if @topic.save
       redirect_to topics_path, success: '投稿しました'

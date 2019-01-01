@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit'
   resources :users
   resources :recipes
-  resources :topics, only: [:index, :new, :create, :topic_id] do
-    resources :comments, only: [:create, :show]
+  resources :topics, only: [:index, :new, :show, :create, :topic_id] do
+    resources :comments, only: [:create]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/login', to: 'sessions#new'

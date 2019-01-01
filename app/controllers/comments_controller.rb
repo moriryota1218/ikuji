@@ -1,6 +1,13 @@
 class CommentsController < ApplicationController
+  
+  def new
+    @comment = Comment.new
+  end
+
+
   def create
-    @comment = Comment.new(comment_params)
+      @comment = current_user.comments.new(comment_params)
+
     if @comment.save
       redirect_back(fallback_location: topics_path)
     else

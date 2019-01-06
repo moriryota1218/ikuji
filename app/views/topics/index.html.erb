@@ -38,7 +38,7 @@
       </div>
     </div>
 
-    <%= form_for [@topics, @comment] do |f| %>
+    <%= form_for [@topics, @topic.comments] do |f| %>
     <%= f.text_field :content %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <%= f.hidden_field :topic_id, :value => @topic_id %>

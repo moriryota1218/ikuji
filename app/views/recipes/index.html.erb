@@ -18,6 +18,19 @@
               <li><%= recipe.how_to_make %></li>
             </ul>
           </p>
+
+           <% if Like.find_by(user_id: @current_user.id, recipe_id: @recipes.id) %>
+
+            <%= link_to("/likes/#{@recipe_id}/destroy",{method: "post"}) do %>
+             <span class="fa fa-heart like-btn-unlike"></span>
+             <% end %>
+
+           <% else %>
+            <%= link_to("/likes/#{@recipe_id}/create",{method: "post"}) do %>
+             <span class="fa fa-heart like-btn"></span>
+             <% end %>
+            <% end %>
+
           <div class="recipe-menu">
             <%= link_to("削除", "/recipes/#{recipe.id}", {method: "delete"}) %>
           </div>

@@ -26,27 +26,27 @@
           <div class="topic-menu">
             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
           </div>
+          <!--ここからコメント投稿機能を作成する -->
+          <div class="comment-title">
+            <h3>＜コメント一覧＞</h3>
+            <% topic.comments.each do |comment| %>
+            <div>
+              <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a>
+              <%= comment.content %>
+            </div>
+            <% end %>
+            <%= form_for [topic, Comment.new] do |f| %>
+            <%= f.text_field :content %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :topic_id, value: topic.id %>
+            <br>
+            <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
+            <% end %>
+          </div>
+
         </div>
       </div>
-      <!--ここからコメント投稿機能を作成する -->
-      <h3>コメント一覧</h3>
-      <% topic.comments.each do |t| %>
-      <div>
-        <a href="/users/<%= @topics.user.id %>"></a>
-        <%= c.content %>
-        <% end %>
-      </div>
     </div>
-
-    <%= form_for [@topics, @topic.comments] do |f| %>
-    <%= f.text_field :content %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <%= f.hidden_field :topic_id, :value => @topic_id %>
-    <br>
-    <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
     <% end %>
-
-    <% end %>
-
   </div>
 </div>

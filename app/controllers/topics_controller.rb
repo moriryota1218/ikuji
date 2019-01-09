@@ -1,5 +1,4 @@
 class TopicsController < ApplicationController
-  before_action :authenticate_user!, only: [:show, :create]
 
   def index
     @topics = Topic.all.order(created_at: "desc")
@@ -13,7 +12,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
-    @comments = @post.comments
+    @comments = @topic.comments
     @comment = Comment.new
   end
 

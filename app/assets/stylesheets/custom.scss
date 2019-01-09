@@ -199,9 +199,19 @@ header {
 
      .topic-menu {
        float: right;
+       margin-right: 10px;
+       border: 1px solid #e6ecf0;
+       border-radius: 3px;
      }
 
    }
+}
+.comment-title {
+  margin-top: 50px;
+  margin-left: 30px;
+}
+.btn4 {
+  margin-top: 15px;
 }
 
 .recipe-new-wrapper {
@@ -216,7 +226,7 @@ header {
   background-attachment: fixed;
   background-size: cover;
 
-   .recipe-index-single {
+ .recipe-index-single {
      background-color: #fff;
      padding-top: 20px;
      padding-bottom: 20px;
@@ -227,21 +237,21 @@ header {
        padding-right: 10px;
        padding-left: 10px;
        line-height: 40px;
-     }
+  }
 
-     .recipe-text {
+ .recipe-text {
        padding-right: 10px;
        padding-left:  10px;
        line-height: 50px;
      }
 
-     img {
+img {
        margin-top: 10px;
        margin-bottom: 20px;
        width: 100%;
      }
 
-     .recipe-menu {
+.recipe-menu {
        float: right;
      }
 

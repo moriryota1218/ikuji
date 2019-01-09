@@ -1,6 +1,8 @@
 class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all.order(created_at: "desc")
+    @recipe = Recipe.new
+
   end
 
 
@@ -21,14 +23,14 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipes = Recipe.find_by(id: params[:id])
-    binding.pry
     @recipes.destroy
     redirect_to recipes_path
   end
 
   private
   def recipe_params
-    params.require(:recipe).permit(:title, :category, :image, :how_to_make, :cooking_material)
+    params.require(:recipe).permit(:title, :category, :image, :how_to_make, :cooking_material,
+     :user_id, :recipe_id)
   end
 
 end

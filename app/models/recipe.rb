@@ -6,6 +6,7 @@ class Recipe < ApplicationRecord
   validates :how_to_make, presence: true
 
   belongs_to :user
+  has_many :like
 
   mount_uploader :image, ImageUploader
 end

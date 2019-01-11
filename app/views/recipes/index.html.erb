@@ -19,17 +19,19 @@
             </ul>
           </p>
 
-           <% if Like.find_by(user_id: @current_user.id, recipe_id: @recipes.id) %>
+           <% if Like.find_by(user_id: current_user.id, recipe_id: @recipe.id) %>
 
-            <%= link_to("/likes/#{@recipe_id}/destroy",{method: "post"}) do %>
+            <%= link_to("/recipes/#{recipe.id}/destroy",{method: "post"}) do %>
              <span class="fa fa-heart like-btn-unlike"></span>
              <% end %>
 
            <% else %>
-            <%= link_to("/likes/#{@recipe_id}/create",{method: "post"}) do %>
+            <%= link_to("/recipes/#{recipe.id}/create",{method: "post"}) do %>
              <span class="fa fa-heart like-btn"></span>
              <% end %>
             <% end %>
+
+            <%= @likes_count %>
 
           <div class="recipe-menu">
             <%= link_to("削除", "/recipes/#{recipe.id}", {method: "delete"}) %>

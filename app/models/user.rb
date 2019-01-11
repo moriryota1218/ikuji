@@ -15,6 +15,7 @@ class User < ApplicationRecord
   has_many :topics
   has_many :comments
   has_many :recipes
+  has_many :likes
 
 
   mount_uploader :image, ImageUploader

@@ -3,11 +3,16 @@ class RecipesController < ApplicationController
     @recipes = Recipe.all.order(created_at: "desc")
     @recipe = Recipe.new
 
+
   end
 
 
   def new
     @recipes = Recipe.new
+  end
+
+  def show
+    @likes_count = Like.where(recipe_id: @recipe.id).count
   end
 
   def create

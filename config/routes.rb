@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'recipes/new' => "recipes#new"
-  post 'likes/:recipe_id/create' => "likes#create"
-  post 'likes/:recipe_id/destroy' => "likes#destroy"
+
   get 'topics/new' => "topics#new"
 
   get 'sessions/new'
@@ -11,7 +10,9 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   get 'users/:id/edit' => 'users#edit'
   resources :users
-  resources :recipes
+  resources :recipes, only: [:index, :new, :create, :destroy, :recipe_id] do
+    resources :likes, only: [:create, :destroy]
+  end
   resources :topics, only: [:index, :new, :show, :create, :topic_id, :destroy] do
     resources :comments, only: [:create]
   end

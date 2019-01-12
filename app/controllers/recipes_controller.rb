@@ -12,7 +12,10 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @likes_count = Like.where(recipe_id: @recipe.id).count
+    @recipe = Recipe.find(params[:id])
+    @like = @recipe.like
+    @like = Like.new
+    @like_count = Like.where(recipe_id: @recipe.id).count
   end
 
   def create

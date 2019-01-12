@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   get 'users/:id/edit' => 'users#edit'
   resources :users
-  resources :recipes, only: [:index, :new, :create, :destroy, :recipe_id] do
+  resources :recipes, only: [:index, :new, :show, :create, :destroy, :recipe_id] do
     resources :likes, only: [:create, :destroy]
   end
   resources :topics, only: [:index, :new, :show, :create, :topic_id, :destroy] do

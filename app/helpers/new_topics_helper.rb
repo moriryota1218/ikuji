@@ -1,0 +1,2 @@
+module NewTopicsHelper
+end

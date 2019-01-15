@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  get 'new_topics/new' => "new_topics#index"
+  
   get 'recipes/new' => "recipes#new"
-
   get 'topics/new' => "topics#new"
 
   get 'sessions/new'
@@ -11,11 +12,12 @@ Rails.application.routes.draw do
   get 'users/:id/edit' => 'users#edit'
   resources :users
   resources :recipes, only: [:index, :new, :show, :create, :destroy, :recipe_id] do
-    resources :likes, only: [:create, :destroy]
+    resources :likes, only: [:create]
   end
   resources :topics, only: [:index, :new, :show, :create, :topic_id, :destroy] do
     resources :comments, only: [:create]
   end
+  delete '/recipes/:recipe_id/likes' => 'likes#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get '/login', to: 'sessions#new'
   post '/login', to: 'sessions#create'

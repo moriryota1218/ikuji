@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'new_topics/new' => "new_topics#index"
-  
+  get 'new_topics/new' => "topics#index"
+
   get 'recipes/new' => "recipes#new"
   get 'topics/new' => "topics#new"
 

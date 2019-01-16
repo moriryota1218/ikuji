@@ -1,11 +1,22 @@
 class NewTopicsController < ApplicationController
+
+  before_action :login_check, only: [:comments :create, :destroy]
+
+  def login_check
+   unless user_signed_in?
+     flash[:alert] = "新規登録してください"
+     redirect_to "/signup"
+   end
+  end
+
   def index
-    @new_topics = Topic.order(created_at: "desc").limit(3)
-    @new_topic = Topic.new
+    @topics = Topic.order(created_at: "desc").limit(3)
+    @topic = Topic.new
 
   end
 
   def new
-    @new_topic = Topic.new
+    @topic = Topic.new
   end
+
 end

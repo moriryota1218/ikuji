@@ -1,5 +1,8 @@
 class TopicsController < ApplicationController
 
+    before_action :authenticate_user!, only: [:index, :new, :create, :destroy]
+
+
   def index
     @topics = Topic.all.order(created_at: "desc")
     @topic = Topic.new
@@ -12,6 +15,7 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.includes(:user).find(params[:id])
+    @topics = Topic.order(created_at: "desc").limit(3)
     @comments = @topic.comments.includes(:user).all
     @comment = @topic.comments.build(user_id: current_user.id) if current_user
   end

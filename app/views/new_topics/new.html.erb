@@ -23,11 +23,12 @@
               <li><%= topic.description %></li>
             </ul>
           </p>
+
+          <% if user_signed_in? %>
           <div class="topic-menu">
             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
           </div>
           <!--ここからコメント投稿機能を作成する -->
-          <% if user_signed_in? %>
           <div class="comment-title">
             <h3>＜コメント一覧＞</h3>
             <% topic.comments.each do |comment| %>
@@ -48,9 +49,6 @@
               <%= f.submit "登録", class: 'btn2 btn-lg btn-primary ' %>
             </div>
             <% end %>
-
-
-
 
           </div>
 

@@ -23,8 +23,8 @@
               <li><%= topic.description %></li>
             </ul>
           </p>
-
-          <% if user_signed_in? && comment.user == current_user %>
+          <!--ログイン時 -->
+          <% if logged_in? && comment.user == current_user %>
           <div class="topic-menu">
             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
           </div>
@@ -45,6 +45,15 @@
             <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
             <% end %>
           </div>
+          <% else %>
+          <!--非ログイン時 -->
+          <%= form_for topic do |f| %>
+          <div style="text-align:center">
+            <div class="btn2-group">
+              <%= f.submit "登録", signup_path, class: 'btn2 btn-lg btn-primary ' %>
+            </div>
+          </div>
+          <% end %>
           <% end %>
 
         </div>

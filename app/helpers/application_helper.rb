@@ -1,6 +1,6 @@
 module ApplicationHelper
   def authenticate_user!
-   current_user nil?
+   current_user.nil?
   end
 
   def current_user
@@ -8,6 +8,6 @@ module ApplicationHelper
   end
 
   def logged_in?
-   current_user nil?
+   current_user.nil?
   end
 end

@@ -1,3 +1,4 @@
+  <!--非ログイン時 --
 <div class="topic-show-wrapper">
   <div class="container">
     <% @topics.each do |topic| %>
@@ -28,7 +29,7 @@
           <div class="topic-menu">
             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
           </div>
-          <!--ここからコメント投稿機能を作成する -->
+  
           <div class="comment-title">
             <h3>＜コメント一覧＞</h3>
             <% topic.comments.each do |comment| %>
@@ -46,6 +47,12 @@
             <% end %>
           </div>
           <% end %>
+
+          <div style="text-align:center">
+            <div class="btn2-group">
+              <%= f.submit "登録", signup_path, class: 'btn2 btn-lg btn-primary ' %>
+            </div>
+          </div>
 
         </div>
       </div>

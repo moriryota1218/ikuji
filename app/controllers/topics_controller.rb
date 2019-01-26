@@ -6,17 +6,16 @@ class TopicsController < ApplicationController
   def index
    @topics = Topic.all.order(created_at: "desc")
    @topic = Topic.new
+
   end
 
   def new
     @topic = Topic.new
   end
 
-  def show
-    @topic = Topic.includes(:user).find(params[:id])
+  def newTopics
     @topics = Topic.order(created_at: "desc").limit(3)
-    @comments = @topic.comments.includes(:user).all
-    @comment = @topic.comments.build(user_id: current_user.id) if current_user
+    
   end
 
   def create

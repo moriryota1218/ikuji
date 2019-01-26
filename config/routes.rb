@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'recipes/new' => "recipes#new"
   get 'topics/new' => "topics#new"
-  
+  get 'new_topics' => "topics#newTopics"
 
   get 'sessions/new'
   get 'signup' => "users#new"

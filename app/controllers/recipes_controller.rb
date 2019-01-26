@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+
+  before_action :authenticate_user!, only: [:index, :new, :create, :destroy]
   def index
     @recipes = Recipe.all.order(created_at: "desc")
     @recipe = Recipe.new
@@ -10,7 +12,7 @@ class RecipesController < ApplicationController
     @recipes = Recipe.new
   end
 
-  
+
   def create
     @recipes = current_user.recipes.new(recipe_params)
 

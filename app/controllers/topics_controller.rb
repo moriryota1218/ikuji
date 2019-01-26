@@ -6,9 +6,6 @@ class TopicsController < ApplicationController
   def index
    @topics = Topic.all.order(created_at: "desc")
    @topic = Topic.new
-   @comments = @topic.comments.includes(:user).all
-   @comment = @topic.comments.build(user_id: current_user.id) if current_user
-
   end
 
   def new

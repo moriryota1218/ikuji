@@ -23,8 +23,7 @@
               <li><%= topic.description %></li>
             </ul>
           </p>
-          <!--ログイン時 -->
-          <% if logged_in? && comment.user == current_user %>
+
           <div class="topic-menu">
             <%= link_to("削除", "/topics/#{topic.id}", {method: "delete"}) %>
           </div>
@@ -45,8 +44,6 @@
             <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
             <% end %>
           </div>
-
-          <% end %>
 
         </div>
       </div>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :recipes, only: [:index, :new, :show, :create, :destroy, :recipe_id] do
     resources :likes, only: [:create]
   end
-  resources :topics, only: [:index, :new, :show, :create, :topic_id, :destroy] do
+  resources :topics, only: [:index, :new, :create, :topic_id, :destroy] do
     resources :comments, only: [:create]
   end
   delete '/recipes/:recipe_id/likes' => 'likes#destroy'

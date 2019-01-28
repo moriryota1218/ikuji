@@ -4,12 +4,16 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all.order(created_at: "desc")
     @recipe = Recipe.new
-
   end
 
 
   def new
     @recipes = Recipe.new
+  end
+
+  def newRecipes
+    @recipes = Recipe.order(created_at: "desc").limit(3)
+
   end
 
 

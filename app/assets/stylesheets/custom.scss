@@ -38,6 +38,13 @@ p, {
   }
 }
 
+.btn:active {
+  box-shadow: none;
+  position: relative;
+  top:10px;
+  left:10px
+}
+
 header {
   height: 64px;
   position: absolute;
@@ -274,17 +281,23 @@ img {
 }
 
 .btn2 {
-  padding: 8px 24px;
+  padding: 5px 12px;
   display: inline-block;
   border-radius: 4px;
-  background-color: #239b76;
+  background-color: #3CB371;
   color: white;
-  box-shadow: 0 7px #1a7940;
-  text-decoration: none;
+  box-shadow: 0 10px #2E8B57;
+
 }
 
 .btn2:active {
   box-shadow: none;
   position: relative;
-  top: 7px;
+  top: 5px;
+
+}
+
+.btn2:hover {
+  text-decoration: none;
+  color: white;
 }

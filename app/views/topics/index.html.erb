@@ -33,13 +33,15 @@
             <% topic.comments.each do |comment| %>
             <div>
               <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a>
-              <%= comment.content %>
+              <%= comment.content %><!--この下に削除機能を定義する-->
+              <%= link_to "[x]", topic_comment_path(topic, comment), method: :delete %>
             </div>
             <% end %>
             <%= form_for [topic, Comment.new] do |f| %>
             <%= f.text_field :content %>
             <%= f.hidden_field :user_id, value: current_user.id %>
             <%= f.hidden_field :topic_id, value: topic.id %>
+
             <br>
             <%= f.submit "コメントする", class: 'btn4 btn-lg btn-primary' %>
             <% end %>

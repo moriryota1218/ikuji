@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create]
   end
   resources :topics, only: [:index, :new, :create, :topic_id, :destroy] do
-    resources :comments, only: [:create]
+    resources :comments, only: [:create, :destroy]
   end
   delete '/recipes/:recipe_id/likes' => 'likes#destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

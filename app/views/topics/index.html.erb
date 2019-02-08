@@ -34,7 +34,9 @@
             <div>
               <a href="/users/<%= comment.user.id %>"><%= comment.user.name %></a>
               <%= comment.content %><!--この下に削除機能を定義する-->
-              <%= link_to "[x]", topic_comment_path(topic, comment), method: :delete %>
+              <%= link_to topic_comment_path(topic, comment), method: :delete do %>
+              <i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
             </div>
             <% end %>
             <%= form_for [topic, Comment.new] do |f| %>

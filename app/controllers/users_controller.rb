@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:show, :edit, :update]
+
   def new
     @user = User.new(params[:user])
   end
@@ -13,7 +14,8 @@ class UsersController < ApplicationController
     if @user.save
        redirect_to root_path, success: '登録が完了しました'
     else
-       redirect_to signup_path, danger: '登録が失敗しました'
+       flash.now[:danger] = '登録が失敗しました'
+       render :new
     end
   end
 

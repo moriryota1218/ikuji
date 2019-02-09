@@ -1,0 +1,2 @@
+class AddColumnTopic < ApplicationRecord
+end

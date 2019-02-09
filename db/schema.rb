@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_06_104949) do
+ActiveRecord::Schema.define(version: 2019_02_09_133200) do
+
+  create_table "add_column_topics", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "content"
@@ -34,8 +40,8 @@ ActiveRecord::Schema.define(version: 2019_01_06_104949) do
     t.string "image"
     t.string "title"
     t.string "category"
-    t.string "cooking_material"
-    t.string "how_to_make"
+    t.text "cooking_material"
+    t.text "how_to_make"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,2 @@
+class AddColumnRecipe < ApplicationRecord
+end

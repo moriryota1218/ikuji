@@ -4,7 +4,7 @@
       <div class="col-md-offset-4 col-md-4 users-new-container">
         <!--エラーメッセージだす-->
         <% if @user.errors.any? %>
-        <div id="error_explanation" class="alert alert-danger">
+        <div id="error_explanation" class="alert alert-warning">
           <ul>
             <% @user.errors.full_messages.each do |message| %>
             <li><%= message %></li>
@@ -15,19 +15,19 @@
         <h1 class="text-center">ユーザー登録</h1>
         <%= form_for @user do |f| %>
         <div class="form-group">
-          <%= f.label :name, class: 'text-white' %>
+          <%= f.label :name, "名前" %>
           <%= f.text_field :name, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :email, class: 'text-white' %>
+          <%= f.label :email, "メールアドレス" %>
           <%= f.text_field :email, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :password, class: 'text-white' %>
+          <%= f.label :password, "パスワード" %>
           <%= f.password_field :password, class: 'form-control' %>
         </div>
         <div class="form-group">
-          <%= f.label :password_confirmation, class: 'text-white' %>
+          <%= f.label :password_confirmation, "パスワード確認" %>
           <%= f.password_field :password_confirmation, class: 'form-control' %>
         </div>
         <div style="text-align:center">

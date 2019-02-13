@@ -6,7 +6,9 @@ ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.1'
 # Use mysql as the database for Active Record
-gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+group :development do
+  gem 'mysql2', '>= 0.4.4', '< 0.6.0'
+end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -60,6 +62,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+
+
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15'
@@ -70,3 +74,7 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+group :production do
+  gem "rack", ">= 2.0.6"
+  gem "pg"
+end
